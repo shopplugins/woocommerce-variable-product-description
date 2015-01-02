@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Variation Description
  * Plugin URI: https://github.com/growdev/woocommerce-availability-chart/
  * Description: Adds per-variation description field to WooCommerce Variable products
- * Version: 1.0.0
+ * Version: 0.1.0
  * Author: Daniel Espinoza
  * Author URI: http://growdevelopment.com
  * Text Domain: woocommerce-variation-description

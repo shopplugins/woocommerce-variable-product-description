@@ -1,10 +1,15 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
+/**
+ * Class WC_Variation_Description_Admin.
  *
+ * Admin settings class.
+ *
+ * @class       WC_Variation_Description_Admin
+ * @version     1.0.0
+ * @author      Daniel Espinoza
  */
-
 
 class WC_Variation_Description_Admin {
 
@@ -42,7 +47,16 @@ class WC_Variation_Description_Admin {
 
 		// output the variation
 
-	    echo "hi hi hi===";
+		$_variable_description = "test description";
+
+	    //echo "hi hi hi===";
+		//error_log(" here here ---------");
+		echo "<tr class=\"variation_description\"><td colspan=\"2\"><label>";
+		echo __( 'Description:', 'woocommerce' );
+		echo "</label>";
+		echo "<textarea name=\"variable_description[" . $loop . "]\" cols=\"5\" rows=\"5\" placeholder=\"\">" . $_variable_description . "</textarea>";
+		echo "</td><td>";
+		echo "</tr>";
 	}
 
 }

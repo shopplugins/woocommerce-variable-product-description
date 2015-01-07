@@ -42,8 +42,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  *	Class WooCommerce_Variation_Description
  *
- *
- *
  *	@class       WooCommerce_Variation_Description
  *	@version     1.0.0
  *	@author      Daniel Espinoza

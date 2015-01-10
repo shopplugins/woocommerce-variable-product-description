@@ -51,7 +51,7 @@ class WC_Variation_Description_Admin {
 		// output the variation
 
 
-		$_variable_description = get_post_meta( $variation->id , '_variation_description', true );
+		$_variable_description = get_post_meta( $variation->ID , '_variation_description', true );
 
 		echo "<tr class=\"variation_description\"><td colspan=\"2\"><label>";
 		echo __( 'Description:', 'woocommerce' );
@@ -71,6 +71,7 @@ class WC_Variation_Description_Admin {
 		if ( isset( $_POST['variable_sku'] ) ) {
 
 			$variable_post_id = $_POST['variable_post_id'];
+			$_variation_description = array();
 
 			if ( ! empty( $_POST['variation_description'] ) ) {
 				$_variation_description = $_POST['variation_description'];
@@ -85,7 +86,7 @@ class WC_Variation_Description_Admin {
 				}
 				$variation_id = absint( $variable_post_id[ $i ] );
 
-				update_post_meta( $variation_id, '_variation_description', wc_clean( $_variation_description ) );
+				update_post_meta( $variation_id, '_variation_description', wc_clean( $_variation_description[ $i ] ) );
 
 			}
 		}

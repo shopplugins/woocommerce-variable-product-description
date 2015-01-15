@@ -1,7 +1,7 @@
 <?PHP
 /*
  * Plugin Name: WooCommerce Variation Description
- * Plugin URI: https://github.com/growdev/woocommerce-availability-chart/
+ * Plugin URI: https://github.com/growdev/woocommerce-variation-description
  * Description: Adds per-variation description field to WooCommerce Variable products
  * Version: 0.1.0
  * Author: Daniel Espinoza
@@ -39,16 +39,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- *	Class WooCommerce_Variation_Description
- *
- *	@class       WooCommerce_Variation_Description
- *	@version     1.0.0
- *	@author      Daniel Espinoza
- */
-class WooCommerce_Variation_Description {
-
-}
+// TODO add a better loader
+// TODO add a is_woocommerce_active()
 
 if ( is_admin() ) :
 

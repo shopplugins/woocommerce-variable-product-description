@@ -46,13 +46,10 @@ class WC_Variation_Description_Admin {
 	 */
 	public function output_variation_description( $loop, $variation_data, $variation ){
 
-		// get variation
-
-		// output the variation
-
-
+		// get variation data
 		$_variable_description = get_post_meta( $variation->ID , '_variation_description', true );
 
+		// output the variation
 		echo "<tr class=\"variation_description\"><td colspan=\"2\"><label>";
 		echo __( 'Description:', 'woocommerce' );
 		echo "</label>";

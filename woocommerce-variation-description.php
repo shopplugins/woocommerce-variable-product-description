@@ -16,7 +16,7 @@
  *     This file is part of WooCommerce Variation Description,
  *     a plugin for WordPress.
  *
- *     WooCommerce Availability Chart is free software:
+ *     WooCommerce Variation Description is free software:
  *     You can redistribute it and/or modify it under the terms of the
  *     GNU General Public License as published by the Free Software
  *     Foundation, either version 3 of the License, or (at your option)

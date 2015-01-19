@@ -13,8 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class WC_Variation_Description_Admin {
 
-	/*
+	/**
+	 * Constructor.
 	 *
+	 * @since 1.0.0
 	 */
 	function __construct() {
 
@@ -25,6 +27,7 @@ class WC_Variation_Description_Admin {
 	/**
 	 * All the hooks
 	 *
+	 * @since 1.0.0
 	 */
 	public function wc_variation_description_hooks() {
 
@@ -40,6 +43,8 @@ class WC_Variation_Description_Admin {
 	/**
 	 * Output this variation's description to the Product Data tab.
 	 *
+	 * @since 1.0.0
+	 *
 	 * @param int $loop
 	 * @param $variation_data
 	 * @param $variation
@@ -50,16 +55,19 @@ class WC_Variation_Description_Admin {
 		$_variable_description = get_post_meta( $variation->ID , '_variation_description', true );
 
 		// output the variation
-		echo "<tr class=\"variation_description\"><td colspan=\"2\"><label>";
-		echo __( 'Description:', 'woocommerce' );
-		echo "</label>";
-		echo "<textarea name=\"variation_description[" . $loop . "]\" cols=\"5\" rows=\"5\" placeholder=\"\">" . $_variable_description . "</textarea>";
-		echo "</td><td>";
-		echo "</tr>";
+		?><tr class="variation_description">
+			<td colspan="2">
+				<label><?php _e( 'Description:', 'woocommerce' ); ?></label>
+				<textarea name="variation_description[<?php echo $loop; ?>]" cols="5" rows="5" placeholder=""><?php echo $_variable_description; ?></textarea>
+			</td>
+		</tr><?php
+
 	}
 
 	/**
 	 * Save the variations to the post meta
+	 *
+	 * @since 1.0.0
 	 *
 	 * @param int $post_id
 	 */

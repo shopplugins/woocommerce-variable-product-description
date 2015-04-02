@@ -6,12 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * Admin settings class.
  *
- * @class       WC_Variation_Description_Admin
+ * @class       WCVP_Description_Admin
  * @version     1.0.0
  * @author      Daniel Espinoza
  */
 
-class WC_Variation_Description_Admin {
+class WCVP_Description_Admin {
 
 	/**
 	 * Constructor.
@@ -20,7 +20,7 @@ class WC_Variation_Description_Admin {
 	 */
 	function __construct() {
 
-		$this->wc_variation_description_hooks();
+		$this->hooks();
 
 	}
 
@@ -29,7 +29,7 @@ class WC_Variation_Description_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-	public function wc_variation_description_hooks() {
+	public function hooks() {
 
 		// hook into the variations panel
 		add_action('woocommerce_product_after_variable_attributes', array( $this , 'output_variation_description'), 30, 3 );
@@ -99,5 +99,3 @@ class WC_Variation_Description_Admin {
 	}
 
 }
-
-return new WC_Variation_Description_Admin();

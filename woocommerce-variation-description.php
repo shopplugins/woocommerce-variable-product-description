@@ -1,28 +1,28 @@
 <?PHP
 /*
- * Plugin Name: WooCommerce Variation Description
- * Plugin URI: https://github.com/growdev/woocommerce-variation-description
- * Description: Adds per-variation description field to WooCommerce Variable products
- * Version: 0.1.0
- * Author: Daniel Espinoza
- * Author URI: http://growdevelopment.com
- * Text Domain: woocommerce-variation-description
+ * Plugin Name: WooCommerce Variable Product Description
+ * Plugin URI: https://github.com/shopplugins/woocommerce-variable-product-description
+ * Description: Adds description field to each variation for WooCommerce variable products
+ * Version: 1.0.0
+ * Author: Shop Plugins
+ * Author URI: http://shopplugins.com
+ * Text Domain: wcvp-description
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
- * Copyright Grow Development (support@growdevelopment.com)
+ * Copyright Shop Plugins (support@shopplugins.com)
  *
- *     This file is part of WooCommerce Variation Description,
+ *     This file is part of WooCommerce Variable Product Description,
  *     a plugin for WordPress.
  *
- *     WooCommerce Variation Description is free software:
+ *     WooCommerce Variable Product Description is free software:
  *     You can redistribute it and/or modify it under the terms of the
  *     GNU General Public License as published by the Free Software
  *     Foundation, either version 3 of the License, or (at your option)
  *     any later version.
  *
- *     WooCommerce Variation Description is distributed in the hope that
+ *     WooCommerce Variable Product Description is distributed in the hope that
  *     it will be useful, but WITHOUT ANY WARRANTY; without even the
  *     implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
  *     PURPOSE. See the GNU General Public License for more details.
@@ -30,23 +30,53 @@
  *     You should have received a copy of the GNU General Public License
  *     along with WordPress. If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    WC-Variation-Description
- * @author     Grow Development
+ * @package    WCVP-Description
+ * @author     Shop Plugins
  * @category   Enhancement
- * @copyright  Copyright (c) 2013-2014, Grow Development
+ * @copyright  Copyright (c) 2013-2015, Shop Plugins
  * @license    http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// TODO add a better loader
 // TODO add a is_woocommerce_active()
 
-if ( is_admin() ) :
+
+class WC_Variation_Description {
+
+	var $admin;
+	var $frontend;
 
 	/**
-	 * Admin class.
+	 * Constructor
 	 */
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wc-variation-description-admin.php';
+	public function __construct() {
 
-endif;
+		$this->init();
+	}
+
+
+	/**
+	 * Init the plugin
+	 */
+	public function init() {
+
+		if ( is_admin() ) :
+
+			/**
+			 * Admin class.
+			 */
+			require_once 'includes/class-wcvp-description-admin.php';
+			$this->admin = new WCVP_Description_Admin();
+
+		endif;
+
+		require_once 'includes/class-wcvp-description.php';
+		$this->frontend = new WCVP_Description();
+
+	}
+
+
+}
+
+$GLOBALS[] = new WC_Variation_Description();

@@ -44,7 +44,6 @@ class WCVP_Description_Admin {
 	 * Output this variation's description to the Product Data tab.
 	 *
 	 * @since 1.0.0
-	 *
 	 * @param int $loop
 	 * @param $variation_data
 	 * @param $variation
@@ -55,12 +54,13 @@ class WCVP_Description_Admin {
 		$_variable_description = get_post_meta( $variation->ID , '_variation_description', true );
 
 		// output the variation
-		?><tr class="variation_description">
-			<td colspan="2">
+		?><div>
+		<p class="form-row">
 				<label><?php _e( 'Description:', 'woocommerce' ); ?></label>
-				<textarea name="variation_description[<?php echo $loop; ?>]" cols="5" rows="5" placeholder=""><?php echo $_variable_description; ?></textarea>
-			</td>
-		</tr><?php
+				<textarea style="width: 100%;" class="postform" name="variation_description[<?php echo $loop; ?>]" cols="5" rows="5" placeholder=""><?php echo $_variable_description; ?></textarea>
+		</p>
+		</div>
+		<?php
 
 	}
 
@@ -68,7 +68,6 @@ class WCVP_Description_Admin {
 	 * Save the variations to the post meta
 	 *
 	 * @since 1.0.0
-	 *
 	 * @param int $post_id
 	 */
 	public function save_variation_description( $post_id ){

@@ -33,7 +33,7 @@ class WCVP_Description {
 
 		add_filter( 'woocommerce_available_variation', array( $this, 'add_variation_meta_to_page' ), 20, 3 );
 
-
+		add_action( 'woocommerce_variable_add_to_cart', array( $this, 'add_variation_js' ), 40 );
 
 		// TODO enqueue javascript for product page changer
 
@@ -49,8 +49,9 @@ class WCVP_Description {
 &quot;image_alt&quot;:&quot;&quot;,
 
 		 */
-		// TODO see if we can hook into the data-product_variations to add a description field
+		// TODO see if we can hook into the data-product_variations to add a description field DONE DONE
 		// or any other definable field
+
 		//
 		// TODO hook into appropriate product page action
 
@@ -63,7 +64,17 @@ class WCVP_Description {
 	 */
 	public function add_variation_description() {
 
-		echo '<div class="variation-description"><p>YOLO!!!!</p></div>';
+		echo '<div class="variation-description"><p></p></div>';
+	}
+
+
+
+	/**
+	 *
+	 */
+	public function add_variation_js() {
+		wp_enqueue_script( 'wc-variation-description' );
+
 	}
 
 

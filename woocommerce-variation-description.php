@@ -74,8 +74,18 @@ class WC_Variation_Description {
 		require_once 'includes/class-wcvp-description.php';
 		$this->frontend = new WCVP_Description();
 
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+
+
 	}
 
+	/**
+	 *
+	 */
+	public function load_scripts() {
+		$path =   plugins_url( '/assets/js/variation-description.js', __FILE__ );
+		wp_register_script( 'wc-variation-description', $path, '', WC()->version, true );
+	}
 
 }
 

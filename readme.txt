@@ -24,6 +24,7 @@ The code is maintained on <a href="https://github.com/shopplugins/woocommerce-va
 1. Upload the folder `woocommerce-variable-product-description` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Edit a variable product, and you will see a "Description" field on the Variations tab
+4. Save the product and the description will become visible on the product page when the variation is chosen
 
 
 == Frequently Asked Questions ==
@@ -32,15 +33,18 @@ The code is maintained on <a href="https://github.com/shopplugins/woocommerce-va
 
 Yes, absolutely!
 
+= Where is the description displayed? =
+
+The description is displayed in a div with class of 'variation-description'.
+
 == Upgrade Notice ==
 
 None.
 
 == Screenshots ==
 
-1. Product page with template hints on
-2. Category page with template hints on
-3. Cart page with template hints on
+1. Variation description field added to Product Data > Variations tab
+2. Variation description showing on product page
 
 
 == Changelog ==

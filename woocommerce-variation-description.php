@@ -39,10 +39,11 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// TODO add a is_woocommerce_active()
-
 
 class WC_Variation_Description {
+
+
+	protected static $instance = null;
 
 	var $admin;
 	var $frontend;
@@ -55,38 +56,67 @@ class WC_Variation_Description {
 		$this->init();
 	}
 
+	/**
+	 * Start the Class when called
+	 *
+	 * @return WC_Template_Hints
+	 */
+	public static function get_instance() {
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+		return self::$instance;
+	}
+
 
 	/**
 	 * Init the plugin
 	 */
 	public function init() {
 
-		if ( is_admin() ) :
+		if ( class_exists( 'WooCommerce' ) ) {
 
-			/**
-			 * Admin class.
-			 */
-			require_once 'includes/class-wcvp-description-admin.php';
-			$this->admin = new WCVP_Description_Admin();
+			if ( is_admin() ) :
 
-		endif;
+				/**
+				 * Admin class.
+				 */
+				require_once 'includes/class-wcvp-description-admin.php';
+				$this->admin = new WCVP_Description_Admin();
 
-		require_once 'includes/class-wcvp-description.php';
-		$this->frontend = new WCVP_Description();
+			endif;
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+			require_once 'includes/class-wcvp-description.php';
+			$this->frontend = new WCVP_Description();
 
+			add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
+
+		} else {
+
+			add_action( 'admin_notices', array( $this, 'woocommerce_missing_notice' ) );
+
+		}
 
 	}
 
 	/**
-	 *
+	 *  Register the js needed on the product page
 	 */
 	public function load_scripts() {
 		$path =   plugins_url( '/assets/js/variation-description.js', __FILE__ );
 		wp_register_script( 'wc-variation-description', $path, '', WC()->version, true );
 	}
 
+	/**
+	 * WooCommerce fallback notice.
+	 *
+	 * @return string
+	 */
+	public function woocommerce_missing_notice() {
+		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Variation Description requires %s to be installed and active.', 'woocommerce-template-hints' ), '<a href="http://www.woothemes.com/woocommerce/" target="_blank">' . __( 'WooCommerce', 'wcvp-description' ) . '</a>' ) . '</p></div>';
+	}
+
 }
 
-$GLOBALS[] = new WC_Variation_Description();
+add_action( 'plugins_loaded', array( 'WC_Variation_Description', 'get_instance' ) );

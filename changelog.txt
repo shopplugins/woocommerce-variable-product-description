@@ -1,5 +1,5 @@
-WooCommerce Variation Description
-=================================
+WooCommerce Variation Product Description
+=========================================
 
-2015-xx-xx  Version 1.0.0
+2015-05-12  Version 1.0.0
 * Initial Release

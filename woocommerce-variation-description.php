@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Variable Product Description
  * Plugin URI: https://github.com/shopplugins/woocommerce-variable-product-description
  * Description: Adds description field to each variation for WooCommerce variable products
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Shop Plugins
  * Author URI: http://shopplugins.com
  * Text Domain: wcvp-description
@@ -114,7 +114,7 @@ class WC_Variation_Description {
 	 * @return string
 	 */
 	public function woocommerce_missing_notice() {
-		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Variation Description requires %s to be installed and active.', 'woocommerce-template-hints' ), '<a href="http://www.woothemes.com/woocommerce/" target="_blank">' . __( 'WooCommerce', 'wcvp-description' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Variation Description requires %s to be installed and active.', 'wcvp-description' ), '<a href="http://www.woothemes.com/woocommerce/" target="_blank">' . __( 'WooCommerce', 'wcvp-description' ) . '</a>' ) . '</p></div>';
 	}
 
 }

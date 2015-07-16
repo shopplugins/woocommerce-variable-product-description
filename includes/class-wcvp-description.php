@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Class responsible for displaying variation descriptions on the product page
  *
  * @class       WC_Variation_Description
- * @version     1.0.0
+ * @version     1.0.1
  * @author      Daniel Espinoza
  */
 
@@ -34,27 +34,6 @@ class WCVP_Description {
 		add_filter( 'woocommerce_available_variation', array( $this, 'add_variation_meta_to_page' ), 20, 3 );
 
 		add_action( 'woocommerce_variable_add_to_cart', array( $this, 'add_variation_js' ), 40 );
-
-		// TODO enqueue javascript for product page changer
-
-		// data-product_variations
-		// reference /plugins/woocommerce/assets/js/frontend/add-to-cart-variation.js
-		/*
-		 * Variations are stored on page in form variable data-product_variations
-		 * Example:
-		 * {&quot;attribute_pa_color&quot;:&quot;green&quot;},
-&quot;image_src&quot;:&quot;http:\/\/wc23.co\/wp-content\/uploads\/2013\/06\/T_3_front-600x600.jpg&quot;,
-&quot;image_link&quot;:&quot;http:\/\/wc23.co\/wp-content\/uploads\/2013\/06\/T_3_front.jpg&quot;,
-&quot;image_title&quot;:&quot;T_3_front&quot;,
-&quot;image_alt&quot;:&quot;&quot;,
-
-		 */
-		// TODO see if we can hook into the data-product_variations to add a description field DONE DONE
-		// or any other definable field
-
-		//
-		// TODO hook into appropriate product page action
-
 
 	}
 

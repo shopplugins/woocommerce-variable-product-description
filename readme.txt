@@ -3,8 +3,8 @@ Contributors: shopplugins, growdev
 Donate link: http://www.shopplugins.com
 Tags: woocommerce, ecommerce, woocommerce add-on, enhancement
 Requires at least: 3.6
-Tested up to: 4.3.0
-Stable tag: 1.0.0
+Tested up to: 4.3.1
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,6 +18,10 @@ different product variations are chosen.
 The code is maintained on <a href="https://github.com/shopplugins/woocommerce-variable-product-description">Github</a>
 
 **Translations, feature requests, and ratings are welcome and appreciated!**
+
+**NOTE**
+
+This feature was added to WooCommerce 2.4 so this plugin is only needed for pre-2.4.
 
 == Installation ==
 

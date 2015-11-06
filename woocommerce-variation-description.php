@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Variable Product Description
  * Plugin URI: https://github.com/shopplugins/woocommerce-variable-product-description
  * Description: Adds description field to each variation for WooCommerce variable products
- * Version: 1.0.2
+ * Version: 1.0.1
  * Author: Shop Plugins
  * Author URI: http://shopplugins.com
  * Text Domain: wcvp-description

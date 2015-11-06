@@ -42,7 +42,7 @@ class WCVP_Description {
 	 *  Add variation description to the product page
 	 */
 	public function add_variation_description() {
-		
+
 		echo '<div class="variation-description"><p></p></div>';
 	}
 
